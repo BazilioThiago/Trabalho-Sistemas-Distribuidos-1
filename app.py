@@ -10,7 +10,7 @@ from deep_translator import GoogleTranslator
 
 #OMDB
 def fetch_omdb_data(filme, ano, traduzir):
-    omdb_key = "7d383cff"
+    omdb_key = ""
     omdb_url = f"http://www.omdbapi.com/?apikey={omdb_key}&t={filme}&y={ano}"
     response = requests.get(omdb_url)
 
@@ -32,7 +32,7 @@ def fetch_omdb_data(filme, ano, traduzir):
 def fetch_tmdb_reviews(filme, ano, traduzir):
     tmdb_header = { 
         "accept": "application/json", 
-        "authorization": f"Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5NDYzOGMzMzYxMjkxNDc3MjhhYjhlNzBiMGE0ZTJjOCIsIm5iZiI6MTc0MjUyMDQxMi4zMzYsInN1YiI6IjY3ZGNjMDVjMzM4ZTc3NzgzZmY1MzZmMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.obNE3LRK6gaJPPnanfrCw8SiXDto23a9TbU0WvedmcM"
+        "authorization": f"Bearer "
         }
     tmdb_url = f"https://api.themoviedb.org/3/search/movie?query={filme}&primary_release_year={ano}"
     response1 = requests.get(tmdb_url, headers=tmdb_header)
