@@ -111,11 +111,11 @@ else:
 
 #faz as requests em paralelo
 with ThreadPoolExecutor() as executor:
-    omdb_future = executor.submit(fetch_omdb_data, filme, ano, traduzir)
-    tmdb_future = executor.submit(fetch_tmdb_reviews, filme, ano, traduzir)
+    omdb_future = executor.submit(fetch_omdb, filme, ano, traduzir)
+    tmdb_future = executor.submit(fetch_tmdb, filme, ano, traduzir)
 
     omdb_data = omdb_future.result()
-    tmdb_reviews = tmdb.result()
+    tmdb_reviews = tmdb_future.result()
 
 #resultado
 os.system('cls')
